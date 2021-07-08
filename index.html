@@ -1,0 +1,108 @@
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>MOFIS</title>
+
+<style>
+<!--
+div.Section1
+	{page:Section1;}
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif"}
+table.TableGrid
+	{border:1.0pt solid black;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+-->
+</style>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>MOFIS</title>
+
+<style>
+<!--
+div.Section1
+	{page:Section1;}
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif"}
+table.TableGrid
+	{border:1.0pt solid black;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+-->
+</style>
+</head>
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<body>
+
+<table class="MsoNormalTable" border="0" cellpadding="0" width="1217" id="table3" height="35">
+	<tr>
+	<td valign="top" style="width: 1211px; height: 31px; padding: .75pt" align="left">
+		
+		<p class="text"><span lang="en-us"><font face="Calibri" size="5" color="#0000FF">
+		<b>MOFISSLAM: A Multi-Object Semantic SLAM System with Front-view, Inertial and Surround-view Sensors for Indoor Parking</b></font></span>
+		
+		<p class="text"><span lang="en-us"><font face="Calibri" size="4" color="#0000FF">
+		Xuan Shao<sup>1</sup>,  Lin Zhang<sup>1</sup>,Tianjun Zhang<sup>1</sup>, Ying Shen<sup>1</sup> and Yicong Zhou<sup>2</sup></font></span>
+
+		<p class="text"><span lang="en-us"><font face="Calibri" size="4" color="#0000FF">
+		<sup>1</sup>School of Software Engineering, Tongji University, Shanghai, China</font></span>
+		<p class="text"><font face="Calibri" size="4" color="#0000FF"><sup>2</sup><span lang="en-us">
+		Department of Computer and Information Science, University of Macau, Macau, China</span></font>
+	</td>
+	</tr>
+</table>
+
+<hr>
+<p><span lang="en-us"><b><font face="Calibri" size="5">Introduction</font></b></span></p>
+
+The semantic SLAM (simultaneous localization and mapping) system is a crucial module for autonomous indoor parking. Visual cameras (monocular/binocular) and IMU (inertial measurement unit) constitute the basic configuration to build such a system. 
+The performance of existing SLAM systems typically deteriorates in the presence of dynamically movable objects or objects with little texture. By contrast, semantic objects on the ground embody the most salient and stable features in the indoor parking environment. 
+Due to their inabilities to perceive such features on the ground, existing SLAM systems are prone to tracking inconsistency during navigation. In this paper, we present MOFISSLAM, a novel tightly-coupled Multi-Object semantic SLAM system integrating Front-view, Inertial, and Surround-view sensors for autonomous indoor parking.
+The proposed system moves beyond existing semantic SLAM systems by complementing the sensor configuration with a surround-view system capturing images from a top-down viewpoint.
+In MOFISSLAM, apart from low-level visual features and inertial motion data, typical semantic features (parking-slots, parking-slot IDs and speed bumps) detected in surround-view images are also incorporated in optimization, forming robust surround-view constraints. 
+Specifically, each surround-view feature imposes a surround-view constraint that can be split into a contact term and a registration term. 
+The former pre-defines the position of each individual surround-view feature subject to whether it has semantic contact with other surround-view features. Three contact modes, defined as complementary, adjacent and coincident, are identified to guarantee a unified form of all contact terms. 
+The latter further constrains by registering each surround-view observation and its position in the world coordinate system.
+In parallel, to objectively evaluate SLAM studies for autonomous indoor parking, a large-scale dataset with groundtruth trajectory is collected, which is the first of its kind. 
+Its groundtruth trajectory, commonly unavailable, is obtained by tracking artificial features scattered in the indoor parking environment, whose 3D coordinates are measured with an ETS (electronic total station).
+<p align="left"><img border="0" src="abstract.png" height="458"></p>
+
+<hr>
+<p><span lang="en-us"><b><font face="Calibri" size="5">Overall Framwork</font></b></span></p>
+<p>
+<span lang="en-us"><font face="Calibri" style="font-size: 13pt">The overall framework of MOFISSLAM is shown in the following figure. Sensor configuration of VISSLAM consists of a front-view camera, an IMU and four fisheye cameras facing ground to form a surround-view camera system. Visual features from the front-view camera, preintegrated IMU measurements between two consecutive keyframes and parking-slots from the surround-view camera system constitute the multi-modal sensor data for VISSLAM. There are two major components in MOFISSLAM, sensor calibration and joint optimization. Sensor calibration is responsible for multi-modal sensor data fusion. The joint optimization model plays a critical role in tightly fusing multi-modal sensor measurements, which is the core of MOFISSLAM.</font></span></p>
+<p align="left"><img border="0" src="framework.png" height="458"></p>
+<p>
+<span lang="en-us"><font face="Calibri" style="font-size: 13pt">We provided an effective yet cost-efficient groundtruth trajectory acquisition approach simply with a mild intervention of the environment. In our approach, the groundtruth trajectory was obtained with an ETS, which can maintain the trajectory integrity and be affordable to the general public. As can be seen from the following figure, three steps were involved, landmarks deployment, artificial landmarks measurement and reference trajectory acquisition. Landmarks deployment ensures a tailored indoor parking environment with artificial landmarks that can be easily detected. Accurate coordinates of artificial landmarks are measured with the benefit of an ETS. By aligning artificial landmark with known 3D coordinates and their 2D projections into the front camera with known pixel coordinates, the camera pose can be acquired.  </font></span></p>
+<p align="left"><img border="0" src="PnP.png" height="458"></p>
+
+<hr>
+<p><span lang="en-us"><b><font face="Calibri" size="5">Benchmark Dataset </font></b></span></p>
+<p>
+<span lang="en-us"><font face="Calibri" style="font-size: 13pt">1. 
+<a href=https://pan.baidu.com/s>Benchmark Dataset</a></font></span></p><p>(pw: )</p>
+<p>
+<span lang="en-us"><font face="Calibri" style="font-size: 13pt">Totally, the dataset contains 12,407 front-view images, 12,407 IMU motion data segments with each segment recording the vehicle motion between two consecutive front-view frames, and 4,033 surround-view images (synthesized from 16,132 fisheye images).
+The resolutions of the fisheye camera and the front-view camera are 1280×1080 and 1280×720, respectively. The spatial resolution of each surround-view image is 416$\times$416, corresponding to a 10m×10m flat physical region, i.e., the length of 1 pixel in the surround-view image corresponds to 2.40cm on the physical ground.
+Moreover, its groundtruth trajectory was also acquired by tracking artificial features evenly scattered in the indoor parking environment.</font></span></p>
+<span lang="en-us"><font face="Calibri" style="font-size: 13pt"> The MOFISSLAM is only for acamedic use under the GNU General Public License Version 3 (GPLv3). For commercial purposes, please contact the authors for details.</font></span></p>
+
+<hr>
+<p><span lang="en-us"><b><font face="Calibri" size="5">Demo Videos</font></b></span></p>
+<p>
+<span lang="en-us"><font face="Calibri" style="font-size: 13pt">The following is the demo video demonstrating the capability of our MOFISSLAM system.</font></span></p>
+<video src="demo.mp4"  height="600"controls preload></video>
+<hr>
+<p align="justify"><font face="Calibri">Last update: <span lang="en-us">July. 8,</span>2021</span></font></p>
+</body>
+</html>
